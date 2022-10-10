@@ -3,12 +3,12 @@ package com.example.jdbc.api.customer;
 import com.example.jdbc.domain.customer.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
+
+import static org.springframework.http.HttpStatus.CREATED;
 
 @RestController
 @RequestMapping("api/v1/customer")
@@ -34,5 +34,14 @@ public class CustomerController {
     var response = CustomerMapper.toResponse(entity);
 
     return ResponseEntity.ok(response);
+  }
+
+  @PostMapping
+  public ResponseEntity<CustomerResponse> create(@Valid @RequestBody CustomerRequest request) {
+    var entity = service.create(request);
+
+    var response = CustomerMapper.toResponse(entity);
+
+    return ResponseEntity.status(CREATED).body(response);
   }
 }

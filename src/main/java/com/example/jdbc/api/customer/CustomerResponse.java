@@ -3,7 +3,7 @@ package com.example.jdbc.api.customer;
 import lombok.Builder;
 import lombok.Data;
 
-import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Data
@@ -11,5 +11,6 @@ import java.util.UUID;
 public class CustomerResponse {
   private UUID id;
   private String name;
-  private List<CustomerAddressResponse> addresses;
+  private String registrationNumber;
+  private Set<CustomerAddressResponse> addresses;
 }

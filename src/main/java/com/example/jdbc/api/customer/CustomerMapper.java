@@ -13,10 +13,11 @@ public class CustomerMapper {
     return CustomerResponse.builder()
         .id(entity.getId())
         .name(entity.getName())
+        .registrationNumber(entity.getRegistrationNumber())
         .addresses(
             entity.getAddresses().stream()
                 .map(CustomerMapper::toResponse)
-                .collect(Collectors.toList()))
+                .collect(Collectors.toSet()))
         .build();
   }
 

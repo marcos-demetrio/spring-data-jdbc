@@ -22,9 +22,6 @@ public class CustomerAddressEntity implements Persistable<UUID> {
   @Column("customer_address_id")
   private UUID id;
 
-  @Column("customer_id")
-  private UUID customerId;
-
   @Column("address")
   private String address;
 
