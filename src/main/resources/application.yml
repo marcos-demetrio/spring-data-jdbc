@@ -1,0 +1,13 @@
+app:
+  datasource:
+    flyway:
+      url: jdbc:postgresql://localhost:5432/mdn_customer_pg
+      username: 'postgres'
+      password: 'password'
+
+    postgres:
+      driver-class-name: org.postgresql.Driver
+      jdbc-url: jdbc:postgresql://localhost:5432/mdn_customer_pg
+      username: postgres
+      password: 'password'
+      pool-size: 30
